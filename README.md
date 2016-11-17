@@ -30,11 +30,16 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-1. Fork it ( https://github.com/mkreyman/silver_mother/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+* Fork the project.
+* Run `bundle`
+* Run `bundle exec rake`
+* Create your feature branch (`git checkout -b my-new-feature`)
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
+* Run `bundle exec rake` again.
+* Commit your changes. (`git commit -am 'Add some feature'`). Please do not mess with rakefile, version, or history.
+* Push to the branch. (`git push origin my-new-feature`)
+* Create a new Pull Request.
 
 ## License
 
