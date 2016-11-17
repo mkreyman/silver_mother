@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Mark Kreyman']
   spec.email         = ['mark@kreyman.com']
 
-  spec.summary       = %q{A simple library for communicating with the Sen.se/SilverMother REST API.}
-  spec.description   = %q{A simple library for communicating with the Sen.se/SilverMother REST API. Register your application at https://sen.se/developers/}
+  spec.summary       = %q{A ruby library for communicating with the SilverMother REST API.}
+  spec.description   = %q{A ruby library for communicating with the SilverMother REST API. Register your application at https://sen.se/developers/}
   spec.homepage      = 'https://github.com/mkreyman/silver_mother'
   spec.license       = 'MIT'
 
@@ -19,7 +19,9 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.12'
+  spec.add_development_dependency 'bundler', '~> 1.13.6'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
+
+  spec.add_dependency 'httparty', '~> 0.14.0'
 end
