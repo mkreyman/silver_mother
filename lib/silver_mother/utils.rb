@@ -14,6 +14,7 @@ module SilverMother
 
     def log_request(token, path, params, result)
       log_message = <<-LOG_MESSAGE
+        \n
         SENSE PATH: #{base_api_url}#{path}
         SENSE PARAMS: #{add_auth_header(token, params)}
         SENSE RESPONSE: #{result.success? && result.parsed_response.inspect}

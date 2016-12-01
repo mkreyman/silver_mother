@@ -5,11 +5,11 @@ module SilverMother
     include Singleton
 
     def call(token)
-      @user = Api.instance.get(token, path)
+      @user_raw = Api.instance.get(token, path)
     end
 
     def user
-      @user.to_ostruct
+      @user ||= @user_raw.to_ostruct
     end
 
     private

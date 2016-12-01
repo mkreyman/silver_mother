@@ -6,24 +6,24 @@ module SilverMother
 
     def call(token)
       @token = token
-      @nodes = []
+      @nodes_raw = []
       @response = Api.instance.get(@token, path)
-      @nodes << @response
+      @nodes_raw << @response
       while next_page do
         new_path = path + next_page_number
         @response = Api.instance.get(@token, new_path)
-        @nodes << @response
+        @nodes_raw << @response
       end
     end
 
     def nodes
-      @nodes.each_with_object([]) do |node, array|
+      @nodes ||= @nodes_raw.each_with_object([]) do |node, array|
         array << node.to_ostruct.objects
       end.flatten
     end
 
     def uids
-      @nodes.each_with_object([]) do |node, array|
+      @uids ||= @nodes_raw.each_with_object([]) do |node, array|
         node.to_ostruct.objects.each do |object|
           array << object.uid
         end
