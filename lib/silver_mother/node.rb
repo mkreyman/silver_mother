@@ -32,7 +32,14 @@ module SilverMother
 
     def node(uid)
       uid_path = path + uid + '/'
-      Api.instance.get(@token, uid_path).to_ostruct
+      @nodes_cache ||= {}
+      @nodes_cache[uid] ||= Api.instance.get(@token, uid_path).to_ostruct
+    end
+
+    def feed(uid)
+      feed_path = path + uid + '/feeds/'
+      @feeds_cache ||= {}
+      @feeds_cache[uid] ||= Api.instance.get(@token, feed_path).to_ostruct
     end
 
     private
@@ -72,8 +79,11 @@ end
 # node.resource.type
 # node.publishes[0].url
 #
-# There's another way to get a node, assuming you've run nodes_api.uids
-# to get a list of uids:
+# There's another way to get a node, assuming you've run nodes_api.uids,
+# in order to get a list of uids:
 # node = nodes_api.node(uid)
+#
+# To get feed(s) for a uid:
+# feed = nodes_api.feed(uid)
 
 

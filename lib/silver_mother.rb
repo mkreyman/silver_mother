@@ -4,6 +4,11 @@ require 'silver_mother/token'
 require 'silver_mother/api'
 require 'silver_mother/user'
 require 'silver_mother/node'
+require 'silver_mother/feed'
+require 'silver_mother/subscription'
+require 'silver_mother/person'
+# require 'silver_mother/event'
+
 
 # Examples (WIP)
 
