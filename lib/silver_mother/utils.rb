@@ -6,6 +6,8 @@ module SilverMother
   class Utils
     include Singleton
 
+    DEFAULT_API_URL = 'https://apis.sen.se/v2/'
+
     def logger
       @logger ||= (defined?(Rails) ? Rails.logger : ::Logger.new(STDOUT))
     end
@@ -14,7 +16,7 @@ module SilverMother
       log_message = <<-LOG_MESSAGE
         SENSE PATH: #{base_api_url}#{path}
         SENSE PARAMS: #{add_auth_header(token, params)}
-        SENSE RESPONSE: #{result.present? && result.parsed_response.inspect}
+        SENSE RESPONSE: #{result.success? && result.parsed_response.inspect}
       LOG_MESSAGE
 
       logger.debug log_message
@@ -27,10 +29,7 @@ module SilverMother
     end
 
     def base_api_url
-      @base_api_url ||= begin
-        require 'rails'
-        Rails.application.secrets.sense.fetch('api_url')
-      end
+      DEFAULT_API_URL
     end
   end
 end
