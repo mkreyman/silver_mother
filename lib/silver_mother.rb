@@ -7,7 +7,7 @@ require 'silver_mother/node'
 require 'silver_mother/feed'
 require 'silver_mother/subscription'
 require 'silver_mother/person'
-# require 'silver_mother/event'
+require 'silver_mother/event'
 
 
 # Examples (WIP)

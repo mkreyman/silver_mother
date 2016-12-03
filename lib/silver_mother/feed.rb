@@ -25,22 +25,15 @@ module SilverMother
     def uids
       @uids ||= @feeds_raw.each_with_object([]) do |feed, array|
         feed.to_ostruct.objects.each do |object|
-          array << object.uid
+          array << { uid: object.uid, type: object.type }
         end
       end
     end
 
     def feed(uid)
       feed_path = path + uid + '/'
-      @feeds_cache ||= {}
-      @feeds_cache[uid] ||= Api.instance.get(@token, feed_path).to_ostruct
-    end
-
-    # @TODO Implement pagination
-    def event(uid)
-      event_path = path + uid + '/events/'
-      @events_cache ||= {}
-      @events_cache[uid] ||= Api.instance.get(@token, event_path).objects.to_ostruct
+      @feed_cache ||= {}
+      @feed_cache[uid] ||= Api.instance.get(@token, feed_path).to_ostruct
     end
 
     private
@@ -77,11 +70,3 @@ end
 #
 # Some attributes are objects or arrays of objects that you could further explore, i.e.
 # feed.eventsModel.geometry
-#
-# To get an event (or events) for a particular uid:
-# events = feeds_api.event(uid)
-# event = events.last
-#
-# Attributes/methods available for the event now:
-# data, dateEvent, dateServer, expiresAt, feedUid, gatewayNodeUid, geometry,
-# nodeUid, payload, profile, signal, type, version.

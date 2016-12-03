@@ -25,21 +25,27 @@ module SilverMother
     def uids
       @uids ||= @nodes_raw.each_with_object([]) do |node, array|
         node.to_ostruct.objects.each do |object|
-          array << object.uid
+          array << {
+                     uid: object.uid,
+                     object: object.object,
+                     label: object.label,
+                     type: object.type,
+                     slug: object.slug
+                   }
         end
       end
     end
 
     def node(uid)
       uid_path = path + uid + '/'
-      @nodes_cache ||= {}
-      @nodes_cache[uid] ||= Api.instance.get(@token, uid_path).to_ostruct
+      @node_cache ||= {}
+      @node_cache[uid] ||= Api.instance.get(@token, uid_path).to_ostruct
     end
 
     def feed(uid)
       feed_path = path + uid + '/feeds/'
-      @feeds_cache ||= {}
-      @feeds_cache[uid] ||= Api.instance.get(@token, feed_path).to_ostruct
+      @feed_cache ||= {}
+      @feed_cache[uid] ||= Api.instance.get(@token, feed_path).to_ostruct
     end
 
     private
