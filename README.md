@@ -1,6 +1,6 @@
-# SilverMother
+# SilverMother API
 
-A ruby library for communicating with the SilverMother REST API. Register your application at https://sen.se/developers/.
+A ruby library for communicating with the SilverMother REST API (https://sen.se/developers/).
 
 ## Installation
 
@@ -17,6 +17,7 @@ And then execute:
 Or install it yourself as:
 
     $ gem install silver_mother
+
 
 ## Usage
 
@@ -65,10 +66,10 @@ events = events_api.events(options)
 If you need to work with a particular event:
 
 ```ruby
-event =  events[0]
+event = events[0]
 ```
 
-Attributes/methods now available for the `event`:
+Attributes/methods now available for the `event` object:
 
  * data
  * dateEvent
@@ -107,8 +108,17 @@ To get a feed (or feeds) for a particular uid:
 feed = feeds_api.feed(uid)
 ```
 
-Attributes/methods now available for the `feed`:
-uid, eventsModel, eventsUrl, label, node, object, type, url, used.
+Attributes/methods now available for the `feed` object:
+
+ * uid
+ * eventsModel
+ * eventsUrl
+ * label
+ * node
+ * object
+ * type
+ * url
+ * used
 
 Some attributes are objects or arrays of objects that you could further explore, i.e.
 
@@ -183,7 +193,7 @@ Attributes/methods now available for the `person` object:
  * lastName
  * gender
  * object
- * phoneNumber.
+ * phoneNumber
 
 ### Subscriptions
 
