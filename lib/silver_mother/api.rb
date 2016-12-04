@@ -12,25 +12,23 @@ module SilverMother
       result
     end
 
-    # These methods haven't been tested yet!
-    #
-    # def post(token, path, params = {})
-    #   result = self.class.post(base_api_url + path, add_auth_header(token, params))
-    #   log_request(token, path, params, result)
-    #   result
-    # end
+    def post(token, path, params = {})
+      result = self.class.post(base_api_url + path, add_auth_header(token, params))
+      log_request(token, path, params, result)
+      result
+    end
 
-    # def put(token, path, params = {})
-    #   result = self.class.put(base_api_url + path, add_auth_header(token, params))
-    #   log_request(token, path, params, result)
-    #   result
-    # end
+    def put(token, path, params = {})
+      result = self.class.put(base_api_url + path, add_auth_header(token, params))
+      log_request(token, path, params, result)
+      result
+    end
 
-    # def delete(token, path, params = {})
-    #   result = self.class.delete(base_api_url + path, add_auth_header(token, params))
-    #   log_request(token, path, params, result)
-    #   result
-    # end
+    def delete(token, path, params = {})
+      result = self.class.delete(base_api_url + path, add_auth_header(token, params))
+      log_request(token, path, params, result)
+      result
+    end
 
     private
 

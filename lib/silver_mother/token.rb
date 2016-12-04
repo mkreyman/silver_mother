@@ -39,7 +39,3 @@ module SilverMother
     end
   end
 end
-
-# Examples
-#
-# token = SilverMother::Token.new('your_username', 'your_password')

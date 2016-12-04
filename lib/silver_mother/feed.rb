@@ -51,22 +51,3 @@ module SilverMother
     end
   end
 end
-
-# Examples
-#
-# Fetch token first:
-# token = SilverMother::Token.new('your_username', 'your_password')
-#
-# feeds_api = SilverMother::Feed.instance
-# feeds_api.call(token)
-# feeds = feeds_api.feeds
-# uids = feeds_api.uids
-#
-# To get a feed (or feeds) for a particular uid:
-# feed = feeds_api.feed(uid)
-#
-# Attributes/methods available for the feed now:
-# uid, eventsModel, eventsUrl, label, node, object, type, url, used.
-#
-# Some attributes are objects or arrays of objects that you could further explore, i.e.
-# feed.eventsModel.geometry

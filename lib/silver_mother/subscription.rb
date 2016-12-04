@@ -37,21 +37,3 @@ module SilverMother
     end
   end
 end
-
-# Examples
-#
-# Fetch token first:
-# token = SilverMother::Token.new('your_username', 'your_password')
-#
-# subscriptions_api = SilverMother::Subscription.instance
-# subscriptions_api.call(token)
-# subscriptions = subscriptions_api.subscriptions
-# subscription = subscriptions.first
-#
-# Attributes/methods available for the subscription now:
-# uid, createdAt, updatedAt, gatewayUrl, geometry, label, object, paused,
-# publishes, resource, subscribes, url.
-#
-# Some attributes are objects or arrays of objects that you could further explore, i.e.
-# subscription.subscribes[0].type
-

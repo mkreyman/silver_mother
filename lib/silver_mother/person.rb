@@ -37,18 +37,3 @@ module SilverMother
     end
   end
 end
-
-# Examples
-#
-# Fetch token first:
-# token = SilverMother::Token.new('your_username', 'your_password')
-#
-# persons_api = SilverMother::Person.instance
-# persons_api.call(token)
-# persons = persons_api.persons
-# person = persons.first
-#
-# Attributes/methods available for the person now:
-# uid, avatarUrl, email, firstName, lastName, gender, object, phoneNumber.
-
-

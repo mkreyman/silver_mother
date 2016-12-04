@@ -63,33 +63,3 @@ module SilverMother
     end
   end
 end
-
-# Examples
-#
-# Fetch token first:
-# token = SilverMother::Token.new('your_username', 'your_password')
-#
-# nodes_api = SilverMother::Node.instance
-# nodes_api.call(token)
-# nodes = nodes_api.nodes
-# uids = nodes_api.uids
-#
-# nodes is an array of node objects that you could iterate over. i.e.
-# node = nodes.first
-#
-# Attributes/methods available for the node now:
-# :uid, :label, :url, :resource, :token, :object, :geometry, :createdAt,
-# :updatedAt, :paused, :subscribes, :publishes
-#
-# Some attributes are objects or arrays of objects that you could further explore, i.e.
-# node.resource.type
-# node.publishes[0].url
-#
-# There's another way to get a node, assuming you've run nodes_api.uids,
-# in order to get a list of uids:
-# node = nodes_api.node(uid)
-#
-# To get feed(s) for a uid:
-# feed = nodes_api.feed(uid)
-
-
