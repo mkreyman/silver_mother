@@ -24,7 +24,8 @@ Or install it yourself as:
 Fetch your token first:
 
 ```ruby
-token = SilverMother::Token.new('your_username', 'your_password')
+user = SilverMother::User.new('your_username', 'your_password')
+token = user.token
 ```
 
 ### Events
@@ -228,12 +229,11 @@ subscription.subscribes[0].type
 ### User
 
 ```ruby
-user_api = SilverMother::User.instance
-user_api.call(token)
-user = user_api.user
+user = SilverMother::User.new('your_username', 'your_password')
+user.object
 ```
 
-Attributes/methods now available for the `user` object:
+Attributes/methods now available for the `user.object` object:
 
  * uid
  * email

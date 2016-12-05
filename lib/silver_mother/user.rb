@@ -1,15 +1,19 @@
-require 'singleton'
-
 module SilverMother
   class User
-    include Singleton
 
-    def call(token)
-      @user_raw = Api.instance.get(token, path)
+    attr_reader :username, :password, :token, :object
+
+    def initialize(username, password)
+      @username = username
+      @password = password
     end
 
-    def user
-      @user ||= @user_raw.to_ostruct
+    def token
+      @token ||= UserToken.instance.call(self)
+    end
+
+    def object
+      @object ||= Api.instance.get(token, path).to_ostruct
     end
 
     private

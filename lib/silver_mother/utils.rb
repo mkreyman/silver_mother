@@ -25,7 +25,7 @@ module SilverMother
 
     def add_auth_header(token, params)
       params[:headers] ||= {}
-      params[:headers]['Authorization'] = "Token #{token.value}"
+      params[:headers]['Authorization'] = "Token #{token}"
       params
     end
 
