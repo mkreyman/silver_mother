@@ -8,6 +8,7 @@ require 'silver_mother/subscription'
 require 'silver_mother/person'
 require 'silver_mother/event'
 require 'silver_mother/auth'
+require 'silver_mother/auth2'
 
 # Examples (WIP)
 

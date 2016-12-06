@@ -1,22 +1,52 @@
-require 'singleton'
-
 module SilverMother
   class Auth
-    include Singleton
 
     DEFAULT_AUTH_URL = 'https://sen.se/api/v2/'
 
-    def build_authorization_url
+    attr_accessor :gateway_url,
+                  :redirect_url,
+                  :oauth2_client_id,
+                  :oauth2_client_secret,
+                  :scope,
+                  :auth_code,
+                  :token
+
+    def initialize(options={})
+      @gateway_url          = options.fetch(:gateway_url)
+      @redirect_url         = options.fetch(:redirect_url)
+      @oauth2_client_id     = options.fetch(:oauth2_client_id)
+      @oauth2_client_secret = options.fetch(:oauth2_client_secret)
+      @scope                = options.fetch(:scope)
+    end
+
+    def authorization_url
       DEFAULT_AUTH_URL +
       authorization_path +
       '?client_id=' + oauth2_client_id +
-      '&scope=' + default_scope +
-      '&redirect_uri=' + redirect_url +
-      '&response_type=' + response_type +
-      '&state=' + state
+      '&scope=' + scope +
+      '&redirect_uri=' + html_encode(redirect_url) +
+      '&response_type=' + response_type
+    end
+
+    def auth_code(params)
+      @auth_code = params['code']
+    end
+
+    def token
+      @token = Api.instance.post(token_path, access_token_params).to_ostruct
     end
 
     private
+
+    def access_token_params
+      {
+        client_id: @oauth2_client_id,
+        client_secret: @oauth2_client_secret,
+        code: @auth_code,
+        redirect_uri: html_encode(@redirect_url),
+        grant_type: 'authorization_code'
+      }
+    end
 
     def authorization_path
       'oauth2/authorize/'
@@ -30,32 +60,12 @@ module SilverMother
       'oauth2/refresh/'
     end
 
-    def gateway_url
-      ENV['GATEWAY_URL']
-    end
-
-    def redirect_url
-      ENV['REDIRECT_URL']
-    end
-
-    def oauth2_client_id
-      ENV['OAUTH2_CLIENT_ID']
-    end
-
-    def oauth2_client_secret
-      ENV['OAUTH2_CLIENT_SECRET']
-    end
-
-    def default_scope
-      ENV['DEFAULT_SCOPE']
-    end
-
     def response_type
       'code'
     end
 
-    def state
-      '1245klj'
+    def html_encode(url)
+      CGI.escape(url)
     end
   end
 end
