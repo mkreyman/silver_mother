@@ -6,42 +6,40 @@ module SilverMother
     include Singleton
     include HTTParty
 
-    def get(token, path, params = {})
-      result = self.class.get(base_api_url + path, add_auth_header(token, params))
-      log_request(token, path, params, result)
+    DEFAULT_API_URL = 'https://apis.sen.se/v2/'
+
+    def get(path, params = {}, token)
+      result = self.class.get(DEFAULT_API_URL + path, add_auth_header(params, token))
+      log_request(path, params, token, result)
       result
     end
 
-    def post(token, path, params = {})
-      result = self.class.post(base_api_url + path, add_auth_header(token, params))
-      log_request(token, path, params, result)
+    def post(path, params = {}, token=nil)
+      result = self.class.post(DEFAULT_API_URL + path, add_auth_header(params, token))
+      log_request(path, params, token, result)
       result
     end
 
-    def put(token, path, params = {})
-      result = self.class.put(base_api_url + path, add_auth_header(token, params))
-      log_request(token, path, params, result)
+    def put(path, params = {}, token)
+      result = self.class.put(DEFAULT_API_URL + path, add_auth_header(params, token))
+      log_request(path, params, token, result)
       result
     end
 
-    def delete(token, path, params = {})
-      result = self.class.delete(base_api_url + path, add_auth_header(token, params))
-      log_request(token, path, params, result)
+    def delete(path, params = {}, token)
+      result = self.class.delete(DEFAULT_API_URL + path, add_auth_header(params, token))
+      log_request(path, params, token, result)
       result
     end
 
     private
 
-    def base_api_url
-      Utils.instance.base_api_url
+    def log_request(path, params, token, result)
+      Utils.instance.log_request(path, params, token, result)
     end
 
-    def log_request(token, path, params, result)
-      Utils.instance.log_request(token, path, params, result)
-    end
-
-    def add_auth_header(token, params)
-      Utils.instance.add_auth_header(token, params)
+    def add_auth_header(params, token)
+      Utils.instance.add_auth_header(params, token)
     end
   end
 end

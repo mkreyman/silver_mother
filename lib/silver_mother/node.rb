@@ -7,11 +7,11 @@ module SilverMother
     def call(token)
       @token = token
       @nodes_raw = []
-      @response = Api.instance.get(@token, path)
+      @response = Api.instance.get(path, @token)
       @nodes_raw << @response
       while next_page do
         new_path = path + next_page_number
-        @response = Api.instance.get(@token, new_path)
+        @response = Api.instance.get(new_path, @token)
         @nodes_raw << @response
       end
     end
@@ -39,13 +39,13 @@ module SilverMother
     def node(uid)
       uid_path = path + uid + '/'
       @node_cache ||= {}
-      @node_cache[uid] ||= Api.instance.get(@token, uid_path).to_ostruct
+      @node_cache[uid] ||= Api.instance.get(uid_path, @token).to_ostruct
     end
 
     def feed(uid)
       feed_path = path + uid + '/feeds/'
       @feed_cache ||= {}
-      @feed_cache[uid] ||= Api.instance.get(@token, feed_path).to_ostruct
+      @feed_cache[uid] ||= Api.instance.get(feed_path, @token).to_ostruct
     end
 
     private

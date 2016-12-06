@@ -40,7 +40,7 @@ module SilverMother
       @ttls ||= {}
       clear_cache(uid) if expired?(@ttls[uid])
       @ttls[uid] ||= ttl(secs)
-      @event_cache[uid] ||= Api.instance.get(@token, path(uid, limit, type)).to_ostruct.objects
+      @event_cache[uid] ||= Api.instance.get(path(uid, limit, type), @token).to_ostruct.objects
     end
 
     def clear_cache!

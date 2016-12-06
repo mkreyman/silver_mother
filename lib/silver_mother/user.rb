@@ -1,7 +1,6 @@
 module SilverMother
   class User
-
-    attr_reader :username, :password, :token, :object
+    attr_reader :username, :password, :token, :data
 
     def initialize(username, password)
       @username = username
@@ -9,16 +8,30 @@ module SilverMother
     end
 
     def token
-      @token ||= UserToken.instance.call(self)
+      @token ||= Api.instance.post(user_token_path, params).to_ostruct.token
     end
 
-    def object
-      @object ||= Api.instance.get(token, path).to_ostruct
+    def data
+      @data ||= Api.instance.get(user_path, token).to_ostruct
     end
 
     private
 
-    def path
+    def params
+      {
+        headers: { 'Content-Type' => 'application/json' },
+        body: {
+          username: @username,
+          password: @password,
+        }.to_json
+      }
+    end
+
+    def user_token_path
+      'user/api_key/'
+    end
+
+    def user_path
       'user/'
     end
   end

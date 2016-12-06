@@ -1,7 +1,6 @@
 require 'silver_mother/version'
 require 'silver_mother/utils'
 require 'silver_mother/api'
-require 'silver_mother/user_token'
 require 'silver_mother/user'
 require 'silver_mother/node'
 require 'silver_mother/feed'

@@ -7,11 +7,11 @@ module SilverMother
     def call(token)
       @token = token
       @persons_raw = []
-      @response = Api.instance.get(@token, path)
+      @response = Api.instance.get(path, @token)
       @persons_raw << @response
       while next_page do
         new_path = path + next_page_number
-        @response = Api.instance.get(@token, new_path)
+        @response = Api.instance.get(new_path, @token)
         @persons_raw << @response
       end
     end
