@@ -230,10 +230,10 @@ subscription.subscribes[0].type
 
 ```ruby
 user = SilverMother::User.new('your_username', 'your_password')
-user.object
+user.data
 ```
 
-Attributes/methods now available for the `user.object` object:
+Attributes/methods now available for the `user.data` object:
 
  * uid
  * email
