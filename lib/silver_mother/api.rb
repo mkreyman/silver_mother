@@ -9,25 +9,25 @@ module SilverMother
     DEFAULT_API_URL = 'https://apis.sen.se/v2/'
 
     def get(path, params = {}, token)
-      result = self.class.get(DEFAULT_API_URL + path, add_auth_header(params, token))
+      result = HTTParty.get(DEFAULT_API_URL + path, add_auth_header(params, token))
       log_request(path, params, token, result)
       result
     end
 
     def post(path, params = {}, token=nil)
-      result = self.class.post(DEFAULT_API_URL + path, add_auth_header(params, token))
+      result = HTTParty.post(DEFAULT_API_URL + path, add_auth_header(params, token))
       log_request(path, params, token, result)
       result
     end
 
     def put(path, params = {}, token)
-      result = self.class.put(DEFAULT_API_URL + path, add_auth_header(params, token))
+      result = HTTParty.put(DEFAULT_API_URL + path, add_auth_header(params, token))
       log_request(path, params, token, result)
       result
     end
 
     def delete(path, params = {}, token)
-      result = self.class.delete(DEFAULT_API_URL + path, add_auth_header(params, token))
+      result = HTTParty.delete(DEFAULT_API_URL + path, add_auth_header(params, token))
       log_request(path, params, token, result)
       result
     end
