@@ -1,3 +1,5 @@
+# Developing this in parallel with home-grown Auth for now...
+
 require 'oauth2'
 
 module SilverMother
@@ -5,10 +7,10 @@ module SilverMother
 
     SENSE_URL      = 'https://sen.se'
     DEFAULTS_PATHS = {
-                         authorization_path: '/api/v2/oauth2/authorize/',
-                         token_path:         '/api/v2/oauth2/token/',
-                         refresh_path:       '/api/v2/oauth2/refresh/'
-                        }
+                        authorization_path: '/api/v2/oauth2/authorize/',
+                        token_path:         '/api/v2/oauth2/token/',
+                        refresh_path:       '/api/v2/oauth2/refresh/'
+                      }
 
     attr_accessor :gateway_url,
                   :redirect_url,
@@ -16,7 +18,6 @@ module SilverMother
                   :oauth2_client_secret,
                   :scope,
                   :client,
-                  :auth_code,
                   :token
 
     def initialize(params={})
@@ -37,14 +38,10 @@ module SilverMother
         )
     end
 
-    def aurhorize_url
+    def authorization_url
       client.auth_code.authorize_url(redirect_uri: @redirect_url) +
         # A hack to prevent 'oauth2' from replacing '+' with '%2B' in the scope param.
         '&scope=' + @scope
-    end
-
-    def auth_code(params={})
-      @auth_code = params['code']
     end
 
     def token(auth_code)
