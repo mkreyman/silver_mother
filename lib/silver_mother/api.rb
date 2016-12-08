@@ -6,6 +6,9 @@ module SilverMother
     include Singleton
     include HTTParty
 
+    # Uncomment the following line for debugging
+    # debug_output
+
     DEFAULT_API_URL = 'https://apis.sen.se/v2/'
 
     def get(path, params = {}, token)
