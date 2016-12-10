@@ -42,14 +42,14 @@ module SilverMother
 
     def get_token(auth_code)
       @token = Api.instance.post(
-        DEFAULTS_PATHS[:token_path], url_encoded_params(auth_code, :access)
+        DEFAULTS_PATHS[:token_path], nil, url_encoded_params(auth_code, :access)
         ).to_ostruct
       @token.expires_on = ttl(@token.expires_in)
     end
 
     def refresh_token(refresh_token)
       @token = Api.instance.post(
-        DEFAULTS_PATHS[:refresh_path], url_encoded_params(refresh_token, :refresh)
+        DEFAULTS_PATHS[:refresh_path], nil, url_encoded_params(refresh_token, :refresh)
         ).to_ostruct
       @token.expires_on = ttl(@token.expires_in)
     end

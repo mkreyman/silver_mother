@@ -8,7 +8,7 @@ module SilverMother
     end
 
     def token
-      @token ||= Api.instance.post(user_token_path, params).to_ostruct.token
+      @token ||= Api.instance.post(user_token_path, nil, params).to_ostruct.token
     end
 
     def data
