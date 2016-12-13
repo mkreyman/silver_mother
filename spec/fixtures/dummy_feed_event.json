@@ -1,0 +1,28 @@
+{
+   "links":{
+      "next":"https://apis.sen.se/v2/feeds/GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs/events/?limit=1&page=2",
+      "prev":null
+   },
+   "totalObjects":null,
+   "object":"list",
+   "objects":[
+      {
+         "profile":null,
+         "feedUid":"GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs",
+         "gatewayNodeUid":null,
+         "dateServer":"2016-12-12T22:28:39.597",
+         "geometry":null,
+         "data":{
+            "body":"A movement at the front door has been detected at 4:28 PM",
+            "posterNodeUid":"tpOqT4b6jByYZoNsfk9mX8v1ctfsOEqP"
+         },
+         "signal":null,
+         "dateEvent":"2016-12-12T22:28:39.597",
+         "expiresAt":null,
+         "version":null,
+         "type":"notification",
+         "payload":null,
+         "nodeUid":"tpOqT4b6jByYZoNsfk9mX8v1ctfsOEqP"
+      }
+   ]
+}

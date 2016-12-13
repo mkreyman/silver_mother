@@ -4,6 +4,8 @@ module SilverMother
   class Event
     include Singleton
 
+    attr_accessor :token
+
     NUMBER_OF_EVENTS = 10
     TTL = 300
 

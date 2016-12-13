@@ -1,0 +1,28 @@
+{
+   "object":"subscription",
+   "url":"http://127.0.0.1:8200/api/v2/nodes/test_uid/",
+   "uid":"testuid",
+   "createdAt":"2014-12-04T16:28:09",
+   "updatedAt":"2014-12-04T16:28:09",
+   "label":"subscription__dummy",
+   "paused":"false",
+   "subscribes":[
+      {
+         "object":"feed",
+         "url":"http://127.0.0.1:8200/api/v2/feeds/eJXayFlDihokjC00D8NFXXeIQnjF4R5x/",
+         "uid":"eJXayFlDihokjC00D8NFXXeIQnjF4R5x",
+         "label":"Presence",
+         "type":"presence"
+      }
+   ],
+   "publishes":[
+
+   ],
+   "resource":{
+      "object":"resource",
+      "url":"http://127.0.0.1:8200/api/v2/resources/subscription/",
+      "type":"subscription",
+      "slug":"subscription"
+   },
+   "gatewayUrl":"https://yodel.eu"
+}

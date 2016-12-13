@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'webmock/rspec'
 
 module SilverMother
-  describe Api do
+  describe User do
     user = User.new('username', 'password')
 
     it 'returns user token' do
