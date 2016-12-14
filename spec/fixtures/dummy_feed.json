@@ -1,12 +1,12 @@
 {
    "object":"feed",
-   "url":"https://127.0.0.1:8200/v2/feeds/GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs/",
+   "url":"https://apis.sen.se/v2/feeds/GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs/",
    "uid":"GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs",
    "label":"Notification",
    "type":"notification",
-   "node":"https://127.0.0.1:8200/v2/nodes/n3TQUtzAp3c67BYOUsIuMAwgWe7i0r3A/",
+   "node":"https://apis.sen.se/v2/nodes/n3TQUtzAp3c67BYOUsIuMAwgWe7i0r3A/",
    "used":false,
-   "eventsUrl":"https://127.0.0.1:8200/v2/feeds/GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs/events/",
+   "eventsUrl":"https://apis.sen.se/v2/feeds/GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs/events/",
    "eventsModel":{
       "profile":{
          "required":false,

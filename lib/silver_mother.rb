@@ -9,6 +9,8 @@ require 'silver_mother/person'
 require 'silver_mother/event'
 require 'silver_mother/auth'
 
+SENSE_API_URL = 'https://apis.sen.se/v2/'
+
 # @TODO: delete
 
 # SilverMother.register(device)

@@ -4,15 +4,17 @@ module SilverMother
   class Feed
     include Singleton
 
+    FEEDS_PATH = 'feeds/'
+
     attr_reader :feeds_raw, :feeds, :uids, :feed_cache
 
     def call(token)
       @token = token
       @feeds_raw = []
-      @response = Api.instance.get(path, @token)
+      @response = Api.instance.get(FEEDS_PATH, @token)
       @feeds_raw << @response
       while next_page do
-        new_path = path + next_page_number
+        new_path = FEEDS_PATH + next_page_number
         @response = Api.instance.get(new_path, @token)
         @feeds_raw << @response
       end
@@ -33,7 +35,7 @@ module SilverMother
     end
 
     def feed(uid)
-      feed_path = path + uid + '/'
+      feed_path = FEEDS_PATH + uid + '/'
       @feed_cache ||= {}
       @feed_cache[uid] ||= Api.instance.get(feed_path, @token).to_ostruct
     end
@@ -46,10 +48,6 @@ module SilverMother
     end
 
     private
-
-    def path
-      'feeds/'
-    end
 
     def next_page
       @response.parsed_response['links']['next'] if @response

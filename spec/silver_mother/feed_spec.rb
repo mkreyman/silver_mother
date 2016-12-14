@@ -7,7 +7,7 @@ module SilverMother
     feeds_api = SilverMother::Feed.instance
 
     before :all do
-      stub_request(:get, Api::DEFAULT_API_URL + 'feeds/')
+      stub_request(:get, SENSE_API_URL + 'feeds/')
         .with(:headers => {'Authorization' => "Bearer #{token}"})
         .to_return(:body => fixture('dummy_feeds.json'))
 
@@ -36,7 +36,7 @@ module SilverMother
         feed_uid = 'n3TQUtzAp3c67BYOUsIuMAwgWe7i0r3A'
         expected_feed_data = JSON.parse(fixture('dummy_feed.json'), object_class: OpenStruct)
 
-        stub_request(:get, Api::DEFAULT_API_URL + 'feeds/' + feed_uid + '/')
+        stub_request(:get, SENSE_API_URL + 'feeds/' + feed_uid + '/')
           .with(:headers => {'Authorization' => "Bearer #{token}"})
           .to_return(:body => fixture('dummy_feed.json'))
 

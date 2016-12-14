@@ -15,7 +15,7 @@ module SilverMother
 
       event_path = "nodes/#{event_params[:uid]}/feeds/#{event_params[:type]}/events/?limit=#{event_params[:limit]}"
 
-      stub_request(:get, Api::DEFAULT_API_URL + event_path)
+      stub_request(:get, SENSE_API_URL + event_path)
         .with(:headers => {'Authorization' => "Bearer #{events_api.token}"})
         .to_return(body: fixture('dummy_node_event.json'))
 
@@ -31,7 +31,7 @@ module SilverMother
 
       event_path = "feeds/#{event_params[:uid]}/events/?limit=#{event_params[:limit]}"
 
-      stub_request(:get, Api::DEFAULT_API_URL + event_path)
+      stub_request(:get, SENSE_API_URL + event_path)
         .with(:headers => {'Authorization' => "Bearer #{events_api.token}"})
         .to_return(body: fixture('dummy_feed_event.json'))
 

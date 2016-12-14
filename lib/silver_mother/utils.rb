@@ -1,6 +1,5 @@
 require 'singleton'
 require 'logger'
-require 'json'
 
 module SilverMother
   class Utils
@@ -13,7 +12,7 @@ module SilverMother
     def log_request(path, params, result)
       log_message = <<-LOG_MESSAGE
         \n
-        SENSE PATH: #{Api::DEFAULT_API_URL}#{path}
+        SENSE PATH: #{SENSE_API_URL}#{path}
         SENSE PARAMS: #{params.inspect}
         SENSE RESPONSE: #{result.success? && result.parsed_response.inspect}
       LOG_MESSAGE

@@ -8,7 +8,7 @@ module SilverMother
     users_api = SilverMother::User.instance
 
     before :all do
-      stub_request(:get, Api::DEFAULT_API_URL + 'user/')
+      stub_request(:get, SENSE_API_URL + 'user/')
         .with(:headers => {'Authorization' => "Bearer #{token}"})
         .to_return(:body => fixture('dummy_user.json'))
 

@@ -1,6 +1,6 @@
 {
    "object":"node",
-   "url":"http://127.0.0.1:8200/api/v2/nodes/testuid/",
+   "url":"http://apis.sen.se/api/v2/nodes/testuid/",
    "uid":"6gqyjjGi0WMYa12pzT7cPgQ3H6M9gKYr",
    "createdAt":"2014-04-01T15:56:12",
    "updatedAt":"2014-07-12T12:16:12",
@@ -9,7 +9,7 @@
    "subscribes":[
       {
          "object":"feed",
-         "url":"http://127.0.0.1:8200/api/v2/feeds/OlkQpUi5x4rS8RyxNOpKYR9CrPrGuhWg/",
+         "url":"http://apis.sen.se/api/v2/feeds/OlkQpUi5x4rS8RyxNOpKYR9CrPrGuhWg/",
          "uid":"OlkQpUi5x4rS8RyxNOpKYR9CrPrGuhWg",
          "label":"Profile",
          "type":"profile"
@@ -18,7 +18,7 @@
    "publishes":[
       {
          "object":"feed",
-         "url":"http://127.0.0.1:8200/api/v2/feeds/AiX2oDNRjswKT9yxMAXNAgxcGBqeHX7P/",
+         "url":"http://apis.sen.se/api/v2/feeds/AiX2oDNRjswKT9yxMAXNAgxcGBqeHX7P/",
          "uid":"AiX2oDNRjswKT9yxMAXNAgxcGBqeHX7P",
          "label":"Motion",
          "type":"motion"

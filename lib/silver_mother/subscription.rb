@@ -4,15 +4,17 @@ module SilverMother
   class Subscription
     include Singleton
 
+    SUBSCRIPTIONS_PATH = 'subscriptions/'
+
     attr_reader :subscriptions_raw, :subscriptions
 
     def call(token)
       @token = token
       @subscriptions_raw = []
-      @response = Api.instance.get(path, @token)
+      @response = Api.instance.get(SUBSCRIPTIONS_PATH, @token)
       @subscriptions_raw << @response
       while next_page do
-        new_path = path + next_page_number
+        new_path = SUBSCRIPTIONS_PATH + next_page_number
         @response = Api.instance.get(new_path, @token)
         @subscriptions_raw << @response
       end
@@ -30,10 +32,6 @@ module SilverMother
     end
 
     private
-
-    def path
-      'subscriptions/'
-    end
 
     def next_page
       @response.parsed_response['links']['next'] if @response

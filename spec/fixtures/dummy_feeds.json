@@ -1,6 +1,6 @@
 {
    "links":{
-      "next":"https://127.0.0.1:8200/v2/feeds/?page=2",
+      "next":"https://apis.sen.se/v2/feeds/?page=2",
       "prev":null
    },
    "totalObjects":44,
@@ -8,92 +8,92 @@
    "objects":[
       {
          "object":"feed",
-         "url":"https://127.0.0.1:8200/v2/feeds/GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs/",
+         "url":"https://apis.sen.se/v2/feeds/GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs/",
          "uid":"GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs",
          "label":"Notification",
          "type":"notification",
-         "node":"https://127.0.0.1:8200/v2/nodes/n3TQUtzAp3c67BYOUsIuMAwgWe7i0r3A/",
+         "node":"https://apis.sen.se/v2/nodes/n3TQUtzAp3c67BYOUsIuMAwgWe7i0r3A/",
          "used":false
       },
       {
          "object":"feed",
-         "url":"https://127.0.0.1:8200/v2/feeds/fMbm4mNQ8ELpDbQfdm5VqAvco3wiuvGS/",
+         "url":"https://apis.sen.se/v2/feeds/fMbm4mNQ8ELpDbQfdm5VqAvco3wiuvGS/",
          "uid":"fMbm4mNQ8ELpDbQfdm5VqAvco3wiuvGS",
          "label":"Sms",
          "type":"sms",
-         "node":"https://127.0.0.1:8200/v2/nodes/n3TQUtzAp3c67BYOUsIuMAwgWe7i0r3A/",
+         "node":"https://apis.sen.se/v2/nodes/n3TQUtzAp3c67BYOUsIuMAwgWe7i0r3A/",
          "used":false
       },
       {
          "object":"feed",
-         "url":"https://127.0.0.1:8200/v2/feeds/iG5uenz86neGAvF6JWZTQkKWYTdUdMTN/",
+         "url":"https://apis.sen.se/v2/feeds/iG5uenz86neGAvF6JWZTQkKWYTdUdMTN/",
          "uid":"iG5uenz86neGAvF6JWZTQkKWYTdUdMTN",
          "label":"Status",
          "type":"status",
-         "node":"https://127.0.0.1:8200/v2/nodes/86b8zqMDyD9m6dcSSvZeHCXNWicELym5/",
+         "node":"https://apis.sen.se/v2/nodes/86b8zqMDyD9m6dcSSvZeHCXNWicELym5/",
          "used":false
       },
       {
          "object":"feed",
-         "url":"https://127.0.0.1:8200/v2/feeds/F2CRPTksEdmafbelRsRunu1zjl5Nn0sk/",
+         "url":"https://apis.sen.se/v2/feeds/F2CRPTksEdmafbelRsRunu1zjl5Nn0sk/",
          "uid":"F2CRPTksEdmafbelRsRunu1zjl5Nn0sk",
          "label":"Sleep",
          "type":"sleep",
-         "node":"https://127.0.0.1:8200/v2/nodes/86b8zqMDyD9m6dcSSvZeHCXNWicELym5/",
+         "node":"https://apis.sen.se/v2/nodes/86b8zqMDyD9m6dcSSvZeHCXNWicELym5/",
          "used":false
       },
       {
          "object":"feed",
-         "url":"https://127.0.0.1:8200/v2/feeds/X2mzRK2j8WpoOJUo9zL24VbKVjPWNJTe/",
+         "url":"https://apis.sen.se/v2/feeds/X2mzRK2j8WpoOJUo9zL24VbKVjPWNJTe/",
          "uid":"X2mzRK2j8WpoOJUo9zL24VbKVjPWNJTe",
          "label":"Medication",
          "type":"medication",
-         "node":"https://127.0.0.1:8200/v2/nodes/86b8zqMDyD9m6dcSSvZeHCXNWicELym5/",
+         "node":"https://apis.sen.se/v2/nodes/86b8zqMDyD9m6dcSSvZeHCXNWicELym5/",
          "used":false
       },
       {
          "object":"feed",
-         "url":"https://127.0.0.1:8200/v2/feeds/JeR6eL6cKFVN1kfKSbC9Oumku5m5qQT5/",
+         "url":"https://apis.sen.se/v2/feeds/JeR6eL6cKFVN1kfKSbC9Oumku5m5qQT5/",
          "uid":"JeR6eL6cKFVN1kfKSbC9Oumku5m5qQT5",
          "label":"Face",
          "type":"face",
-         "node":"https://127.0.0.1:8200/v2/nodes/0jxjhOPaNXq1wmVZN6LVWC6HgiUY4Clf/",
+         "node":"https://apis.sen.se/v2/nodes/0jxjhOPaNXq1wmVZN6LVWC6HgiUY4Clf/",
          "used":true
       },
       {
          "object":"feed",
-         "url":"https://127.0.0.1:8200/v2/feeds/qGWGuHVVOstc1x7RDRmZtjUkcVDcgbye/",
+         "url":"https://apis.sen.se/v2/feeds/qGWGuHVVOstc1x7RDRmZtjUkcVDcgbye/",
          "uid":"qGWGuHVVOstc1x7RDRmZtjUkcVDcgbye",
          "label":"Touch",
          "type":"touch",
-         "node":"https://127.0.0.1:8200/v2/nodes/0jxjhOPaNXq1wmVZN6LVWC6HgiUY4Clf/",
+         "node":"https://apis.sen.se/v2/nodes/0jxjhOPaNXq1wmVZN6LVWC6HgiUY4Clf/",
          "used":false
       },
       {
          "object":"feed",
-         "url":"https://127.0.0.1:8200/v2/feeds/sT5Y1plO1xlGtnJ6KEv1HasYVQfgSa2Y/",
+         "url":"https://apis.sen.se/v2/feeds/sT5Y1plO1xlGtnJ6KEv1HasYVQfgSa2Y/",
          "uid":"sT5Y1plO1xlGtnJ6KEv1HasYVQfgSa2Y",
          "label":"Presence",
          "type":"presence",
-         "node":"https://127.0.0.1:8200/v2/nodes/0jxjhOPaNXq1wmVZN6LVWC6HgiUY4Clf/",
+         "node":"https://apis.sen.se/v2/nodes/0jxjhOPaNXq1wmVZN6LVWC6HgiUY4Clf/",
          "used":false
       },
       {
          "object":"feed",
-         "url":"https://127.0.0.1:8200/v2/feeds/f4jgxttA0nSEUYsB8OdKxi248xBrBf0p/",
+         "url":"https://apis.sen.se/v2/feeds/f4jgxttA0nSEUYsB8OdKxi248xBrBf0p/",
          "uid":"f4jgxttA0nSEUYsB8OdKxi248xBrBf0p",
          "label":"Push Notification",
          "type":"pushnotification",
-         "node":"https://127.0.0.1:8200/v2/nodes/MQ7LWSs3wcMuRReuACW6GE1U7jiZFhSM/",
+         "node":"https://apis.sen.se/v2/nodes/MQ7LWSs3wcMuRReuACW6GE1U7jiZFhSM/",
          "used":true
       },
       {
          "object":"feed",
-         "url":"https://127.0.0.1:8200/v2/feeds/Ah3wL4W15PU9i6cFbwcjKtDrgIdi7WQT/",
+         "url":"https://apis.sen.se/v2/feeds/Ah3wL4W15PU9i6cFbwcjKtDrgIdi7WQT/",
          "uid":"Ah3wL4W15PU9i6cFbwcjKtDrgIdi7WQT",
          "label":"Motion",
          "type":"motion",
-         "node":"https://127.0.0.1:8200/v2/nodes/l3tplOp3jMboq8ZYLZdZrELYbZblYsge/",
+         "node":"https://apis.sen.se/v2/nodes/l3tplOp3jMboq8ZYLZdZrELYbZblYsge/",
          "used":false
       }
    ]

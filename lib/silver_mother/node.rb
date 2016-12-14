@@ -4,15 +4,17 @@ module SilverMother
   class Node
     include Singleton
 
+    NODES_PATH = 'nodes/'
+
     attr_reader :nodes_raw, :nodes, :uids, :node_cache, :uid_cache
 
     def call(token)
       @token = token
       @nodes_raw = []
-      @response = Api.instance.get(path, @token)
+      @response = Api.instance.get(NODES_PATH, @token)
       @nodes_raw << @response
       while next_page do
-        new_path = path + next_page_number
+        new_path = NODES_PATH + next_page_number
         @response = Api.instance.get(new_path, @token)
         @nodes_raw << @response
       end
@@ -39,13 +41,13 @@ module SilverMother
     end
 
     def node(uid)
-      uid_path = path + uid + '/'
+      uid_path = NODES_PATH + uid + '/'
       @node_cache ||= {}
       @node_cache[uid] ||= Api.instance.get(uid_path, @token).to_ostruct
     end
 
     def feed(uid)
-      feed_path = path + uid + '/feeds/'
+      feed_path = NODES_PATH + uid + '/feeds/'
       @feed_cache ||= {}
       @feed_cache[uid] ||= Api.instance.get(feed_path, @token).to_ostruct
     end
@@ -59,10 +61,6 @@ module SilverMother
     end
 
     private
-
-    def path
-      'nodes/'
-    end
 
     def next_page
       @response.parsed_response['links']['next'] if @response

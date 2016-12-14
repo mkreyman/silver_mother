@@ -66,11 +66,11 @@ module SilverMother
       case grant_type
       when :access
         params = {
-          client_id: @oauth2_client_id,
+          client_id:     @oauth2_client_id,
           client_secret: @oauth2_client_secret,
-          code: code,
-          redirect_uri: html_encode(@redirect_url),
-          grant_type: GRANT_TYPES[grant_type]
+          code:          code,
+          redirect_uri:  html_encode(@redirect_url),
+          grant_type:    GRANT_TYPES[grant_type]
         }
       when :refresh
         params = {

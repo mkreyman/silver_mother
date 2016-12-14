@@ -8,7 +8,7 @@
    "objects":[
       {
          "object":"subscription",
-         "url":"https://127.0.0.1:8200/v2/subscriptions/PL7W4u6areYI9x1GAz4eF204PTWipoGN/",
+         "url":"https://apis.sen.se/v2/subscriptions/PL7W4u6areYI9x1GAz4eF204PTWipoGN/",
          "uid":"PL7W4u6areYI9x1GAz4eF204PTWipoGN",
          "createdAt":"2015-06-24T13:39:53",
          "updatedAt":"2015-06-24T13:39:53",
@@ -17,7 +17,7 @@
          "subscribes":[
             {
                "object":"feed",
-               "url":"https://127.0.0.1:8200/v2/feeds/TeT75dqqCXtyp3JyYU2zWthzuG6nRZql/",
+               "url":"https://apis.sen.se/v2/feeds/TeT75dqqCXtyp3JyYU2zWthzuG6nRZql/",
                "uid":"TeT75dqqCXtyp3JyYU2zWthzuG6nRZql",
                "label":"Motion",
                "type":"motion",
@@ -25,7 +25,7 @@
             },
             {
                "object":"feed",
-               "url":"https://127.0.0.1:8200/v2/feeds/xSXdRJoneu8TWQKRnYOi6VZe8nv6loG9/",
+               "url":"https://apis.sen.se/v2/feeds/xSXdRJoneu8TWQKRnYOi6VZe8nv6loG9/",
                "uid":"xSXdRJoneu8TWQKRnYOi6VZe8nv6loG9",
                "label":"Battery",
                "type":"battery",
@@ -33,7 +33,7 @@
             },
             {
                "object":"feed",
-               "url":"https://127.0.0.1:8200/v2/feeds/7iEALPoZMPTvqCKVBKknqgkCcyrlhOt6/",
+               "url":"https://apis.sen.se/v2/feeds/7iEALPoZMPTvqCKVBKknqgkCcyrlhOt6/",
                "uid":"7iEALPoZMPTvqCKVBKknqgkCcyrlhOt6",
                "label":"Alert",
                "type":"alert",
