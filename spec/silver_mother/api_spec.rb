@@ -9,21 +9,21 @@ module SilverMother
 
     it 'performs all calls with authorization header' do
       api = Api.instance
+      token = 'stubbed-application-token'
       expected = instance_double(HTTParty::Response,
                                  success?: true,
                                  parsed_response: fixture('dummy_feed.json'))
 
       stub_request(:any, SENSE_API_URL + 'path/to/resource')
-        .with(:headers => {'Authorization' => 'Bearer stubbed-application-token',
-                           'Content-Type' => 'application/json'})
-        .to_return(:body => fixture('dummy_feed.json'))
+        .with(headers: { 'Authorization' => "Bearer #{token}",
+                         'Content-Type' => 'application/json' })
+        .to_return(body: fixture('dummy_feed.json'))
 
       actual = api.get('path/to/resource',
-                          'stubbed-application-token',
-                           headers: {'Content-Type' => 'application/json'})
+                       'stubbed-application-token',
+                       headers: { 'Content-Type' => 'application/json' })
 
       expect(actual.parsed_response).to eq expected.parsed_response
     end
   end
 end
-

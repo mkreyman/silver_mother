@@ -4,7 +4,7 @@ module SilverMother
   class Feed
     include Singleton
 
-    FEEDS_PATH = 'feeds/'
+    FEEDS_PATH = 'feeds/'.freeze
 
     attr_reader :feeds_raw, :feeds, :uids, :feed_cache
 
@@ -13,7 +13,7 @@ module SilverMother
       @feeds_raw = []
       @response = Api.instance.get(FEEDS_PATH, @token)
       @feeds_raw << @response
-      while next_page do
+      while next_page
         new_path = FEEDS_PATH + next_page_number
         @response = Api.instance.get(new_path, @token)
         @feeds_raw << @response

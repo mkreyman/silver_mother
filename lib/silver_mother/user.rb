@@ -4,7 +4,7 @@ module SilverMother
   class User
     include Singleton
 
-    USER_PATH = 'user/'
+    USER_PATH = 'user/'.freeze
 
     attr_reader :user
 

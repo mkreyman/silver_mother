@@ -4,25 +4,25 @@ module SilverMother
   class Subscription
     include Singleton
 
-    SUBSCRIPTIONS_PATH = 'subscriptions/'
+    SUBS_PATH = 'subscriptions/'.freeze
 
     attr_reader :subscriptions_raw, :subscriptions
 
     def call(token)
       @token = token
       @subscriptions_raw = []
-      @response = Api.instance.get(SUBSCRIPTIONS_PATH, @token)
+      @response = Api.instance.get(SUBS_PATH, @token)
       @subscriptions_raw << @response
-      while next_page do
-        new_path = SUBSCRIPTIONS_PATH + next_page_number
+      while next_page
+        new_path = SUBS_PATH + next_page_number
         @response = Api.instance.get(new_path, @token)
         @subscriptions_raw << @response
       end
     end
 
     def subscriptions
-      @subscriptions ||= @subscriptions_raw.each_with_object([]) do |subscription, array|
-        array << subscription.to_ostruct.objects
+      @subscriptions ||= @subscriptions_raw.each_with_object([]) do |sub, arr|
+        arr << sub.to_ostruct.objects
       end.flatten
     end
 

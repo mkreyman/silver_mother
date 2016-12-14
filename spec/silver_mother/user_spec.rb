@@ -1,6 +1,5 @@
 require 'spec_helper'
 require 'webmock/rspec'
-require 'pry'
 
 module SilverMother
   describe User do
@@ -9,14 +8,16 @@ module SilverMother
 
     before :all do
       stub_request(:get, SENSE_API_URL + 'user/')
-        .with(:headers => {'Authorization' => "Bearer #{token}"})
-        .to_return(:body => fixture('dummy_user.json'))
+        .with(headers: { 'Authorization' => "Bearer #{token}" })
+        .to_return(body: fixture('dummy_user.json'))
 
       users_api.call(token)
     end
 
     it 'pulls user data with #call' do
-      expected_user_data = JSON.parse(fixture('dummy_user.json'), object_class: OpenStruct)
+      expected_user_data = JSON.parse(fixture('dummy_user.json'),
+                                      object_class: OpenStruct)
+
       expect(users_api.user).to eq expected_user_data
     end
 

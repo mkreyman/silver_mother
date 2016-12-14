@@ -4,7 +4,7 @@ module SilverMother
   class Node
     include Singleton
 
-    NODES_PATH = 'nodes/'
+    NODES_PATH = 'nodes/'.freeze
 
     attr_reader :nodes_raw, :nodes, :uids, :node_cache, :uid_cache
 
@@ -13,7 +13,7 @@ module SilverMother
       @nodes_raw = []
       @response = Api.instance.get(NODES_PATH, @token)
       @nodes_raw << @response
-      while next_page do
+      while next_page
         new_path = NODES_PATH + next_page_number
         @response = Api.instance.get(new_path, @token)
         @nodes_raw << @response
@@ -29,13 +29,11 @@ module SilverMother
     def uids
       @uids ||= @nodes_raw.each_with_object([]) do |node, array|
         node.to_ostruct.objects.each do |object|
-          array << {
-                     uid: object.uid,
+          array << { uid: object.uid,
                      object: object.object,
                      label: object.label,
                      type: object.type,
-                     slug: object.slug
-                   }
+                     slug: object.slug }
         end
       end
     end

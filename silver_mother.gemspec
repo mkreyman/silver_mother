@@ -9,12 +9,18 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Mark Kreyman']
   spec.email         = ['mark@kreyman.com']
 
-  spec.summary       = %q{A ruby library for communicating with the SilverMother REST API.}
-  spec.description   = %q{A ruby library for communicating with the SilverMother REST API. Register your application at https://sen.se/developers/}
+  spec.summary       = 'A library for communicating with the SilverMother API.'
+  spec.description   = 'A ruby library for communicating with the SilverMother \
+                        REST API. Register your application at \
+                        https://sen.se/developers/'
+
   spec.homepage      = 'https://github.com/mkreyman/silver_mother'
   spec.license       = 'MIT'
 
-  spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files         = `git ls-files -z`
+                       .split("\x0")
+                       .reject { |f| f.match(%r{^(test|spec|features)/}) }
+
   spec.bindir        = 'exe'
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']

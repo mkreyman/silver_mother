@@ -4,7 +4,7 @@ module SilverMother
   class Person
     include Singleton
 
-    PERSONS_PATH = 'persons/'
+    PERSONS_PATH = 'persons/'.freeze
 
     attr_reader :persons_raw, :persons
 
@@ -13,7 +13,7 @@ module SilverMother
       @persons_raw = []
       @response = Api.instance.get(PERSONS_PATH, @token)
       @persons_raw << @response
-      while next_page do
+      while next_page
         new_path = PERSONS_PATH + next_page_number
         @response = Api.instance.get(new_path, @token)
         @persons_raw << @response

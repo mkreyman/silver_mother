@@ -12,9 +12,6 @@ module SilverMother
                 :event_cache,
                 :ttls
 
-    NUMBER_OF_EVENTS = 10
-    TTL              = 300
-
     def call(token)
       @token     = token
       @feeds_api = SilverMother::Feed.instance
@@ -39,16 +36,15 @@ module SilverMother
       @node_uids ||= @nodes_api.uids
     end
 
-    def events(params={})
-      uid   = params[:uid]
-      type  = params[:type]
-      limit = params[:limit] || NUMBER_OF_EVENTS
-      secs  = params[:secs] || TTL
+    def events(uid, type = nil)
       @event_cache ||= {}
       @ttls ||= {}
       clear_cache(uid) if expired?(@ttls[uid])
-      @ttls[uid] ||= ttl(secs)
-      @event_cache[uid] ||= Api.instance.get(path(uid, limit, type), @token).to_ostruct.objects
+      @ttls[uid] ||= ttl(TTL)
+      @event_cache[uid] ||= Api.instance
+                               .get(path(uid, type), @token)
+                               .to_ostruct
+                               .objects
     end
 
     def clear_cache!
@@ -58,11 +54,11 @@ module SilverMother
 
     private
 
-    def path(uid, limit, type=nil)
+    def path(uid, type = nil)
       if type
-        "nodes/#{uid}/feeds/#{type}/events/?limit=#{limit}"
+        "nodes/#{uid}/feeds/#{type}/events/?limit=#{NUM_OF_RESULTS}"
       else
-        "feeds/#{uid}/events/?limit=#{limit}"
+        "feeds/#{uid}/events/?limit=#{NUM_OF_RESULTS}"
       end
     end
 
