@@ -5,12 +5,18 @@ module SilverMother
     include Singleton
 
     attr_accessor :token
+    attr_reader :feeds,
+                :feed_uids,
+                :nodes,
+                :node_uids,
+                :event_cache,
+                :ttls
 
     NUMBER_OF_EVENTS = 10
-    TTL = 300
+    TTL              = 300
 
     def call(token)
-      @token = token
+      @token     = token
       @feeds_api = SilverMother::Feed.instance
       @feeds_api.call(@token)
       @nodes_api = SilverMother::Node.instance
@@ -33,11 +39,11 @@ module SilverMother
       @node_uids ||= @nodes_api.uids
     end
 
-    def events(options={})
-      uid = options[:uid]
-      type = options[:type]
-      limit = options[:limit] || NUMBER_OF_EVENTS
-      secs = options[:secs] || TTL
+    def events(params={})
+      uid   = params[:uid]
+      type  = params[:type]
+      limit = params[:limit] || NUMBER_OF_EVENTS
+      secs  = params[:secs] || TTL
       @event_cache ||= {}
       @ttls ||= {}
       clear_cache(uid) if expired?(@ttls[uid])
@@ -47,7 +53,7 @@ module SilverMother
 
     def clear_cache!
       @event_cache = {}
-      @ttls = {}
+      @ttls        = {}
     end
 
     private

@@ -4,6 +4,8 @@ module SilverMother
   class Person
     include Singleton
 
+    attr_reader :persons_raw, :persons
+
     def call(token)
       @token = token
       @persons_raw = []
@@ -20,6 +22,11 @@ module SilverMother
       @persons ||= @persons_raw.each_with_object([]) do |person, array|
         array << person.to_ostruct.objects
       end.flatten
+    end
+
+    def clear_cache!
+      @persons_raw = []
+      @persons     = []
     end
 
     private

@@ -4,6 +4,8 @@ module SilverMother
   class Subscription
     include Singleton
 
+    attr_reader :subscriptions_raw, :subscriptions
+
     def call(token)
       @token = token
       @subscriptions_raw = []
@@ -20,6 +22,11 @@ module SilverMother
       @subscriptions ||= @subscriptions_raw.each_with_object([]) do |subscription, array|
         array << subscription.to_ostruct.objects
       end.flatten
+    end
+
+    def clear_cache!
+      @subscriptions_raw = []
+      @subscriptions     = []
     end
 
     private

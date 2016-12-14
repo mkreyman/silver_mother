@@ -6,7 +6,7 @@ module SilverMother
     user = User.new('username', 'password')
 
     it 'returns user token' do
-      expected_token = 'stubbed-user-token'
+      expected_token = 'stubbed-application-token'
       user_params = {username: 'username', password: 'password'}
 
       stub_request(:post, Api::DEFAULT_API_URL + 'user/api_key/')
@@ -21,7 +21,7 @@ module SilverMother
       expected_user_data = JSON.parse(fixture('dummy_user.json'), object_class: OpenStruct)
 
       stub_request(:get, Api::DEFAULT_API_URL + 'user/')
-        .with(:headers => {'Authorization' => 'Token stubbed-user-token'})
+        .with(:headers => {'Authorization' => 'Bearer stubbed-application-token'})
         .to_return(:body => fixture('dummy_user.json'))
 
       expect(user.data).to eq expected_user_data

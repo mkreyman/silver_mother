@@ -38,7 +38,7 @@ nodes = events_api.nodes
 node_uids = events_api.node_uids
 feed_uids = events_api.feed_uids
 
-options = {
+params = {
             uid:   'n3TQUtzAp3c67BYOUsIuMAwgWe7i0r3A',
             type:  'notification',
             limit: 5,   # limit the number of results, default is 10
@@ -58,10 +58,18 @@ Possible types appear to be:
  * 'temperature'
  * 'tile'
 
-**NOTE:** you can only specify 'type' for node UIDs.
+**NOTE:** you can only specify 'type' for node UIDs. An example of a params hash for a feed uid:
+
+ ```ruby
+params = {
+            uid:   'GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs',
+            limit: 5,   # limit the number of results, default is 10
+            secs:  3600 # ttl for returned results, default is 300
+          }
+```
 
 ```ruby
-events = events_api.events(options)
+events = events_api.events(params)
 ```
 
 If you need to work with a particular event:

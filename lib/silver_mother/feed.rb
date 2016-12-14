@@ -4,6 +4,8 @@ module SilverMother
   class Feed
     include Singleton
 
+    attr_reader :feeds_raw, :feeds, :uids, :feed_cache
+
     def call(token)
       @token = token
       @feeds_raw = []
@@ -33,7 +35,14 @@ module SilverMother
     def feed(uid)
       feed_path = path + uid + '/'
       @feed_cache ||= {}
-      @feed_cache[uid] ||= Api.instance.get(@token, feed_path).to_ostruct
+      @feed_cache[uid] ||= Api.instance.get(feed_path, @token).to_ostruct
+    end
+
+    def clear_cache!
+      @feeds_raw  = []
+      @feeds      = []
+      @uids       = []
+      @feed_cache = {}
     end
 
     private

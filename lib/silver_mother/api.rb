@@ -39,7 +39,7 @@ module SilverMother
 
     def add_auth_header(token=false, params)
       params[:headers] ||= {}
-      params[:headers]['Authorization'] = "Token #{token}" if token
+      params[:headers]['Authorization'] = "Bearer #{token}" if token
       params
     end
 

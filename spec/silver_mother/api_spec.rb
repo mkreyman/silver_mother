@@ -14,12 +14,12 @@ module SilverMother
                                  parsed_response: fixture('dummy_feed.json'))
 
       stub_request(:any, Api::DEFAULT_API_URL + 'path/to/resource')
-        .with(:headers => {'Authorization' => 'Token stubbed-user-token',
+        .with(:headers => {'Authorization' => 'Bearer stubbed-application-token',
                            'Content-Type' => 'application/json'})
         .to_return(:body => fixture('dummy_feed.json'))
 
       actual = api.get('path/to/resource',
-                          'stubbed-user-token',
+                          'stubbed-application-token',
                            headers: {'Content-Type' => 'application/json'})
 
       expect(actual.parsed_response).to eq expected.parsed_response

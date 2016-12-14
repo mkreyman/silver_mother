@@ -4,6 +4,8 @@ module SilverMother
   class Node
     include Singleton
 
+    attr_reader :nodes_raw, :nodes, :uids, :node_cache, :uid_cache
+
     def call(token)
       @token = token
       @nodes_raw = []
@@ -46,6 +48,14 @@ module SilverMother
       feed_path = path + uid + '/feeds/'
       @feed_cache ||= {}
       @feed_cache[uid] ||= Api.instance.get(feed_path, @token).to_ostruct
+    end
+
+    def clear_cache!
+      @nodes_raw  = []
+      @nodes      = []
+      @uids       = []
+      @node_cache = {}
+      @feed_cache = {}
     end
 
     private

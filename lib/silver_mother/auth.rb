@@ -45,6 +45,7 @@ module SilverMother
         DEFAULTS_PATHS[:token_path], nil, url_encoded_params(auth_code, :access)
         ).to_ostruct
       @token.expires_on = ttl(@token.expires_in)
+      @token
     end
 
     def refresh_token(refresh_token)
@@ -52,6 +53,7 @@ module SilverMother
         DEFAULTS_PATHS[:refresh_path], nil, url_encoded_params(refresh_token, :refresh)
         ).to_ostruct
       @token.expires_on = ttl(@token.expires_in)
+      @token
     end
 
     def expired?

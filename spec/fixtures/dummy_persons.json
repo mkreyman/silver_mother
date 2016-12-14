@@ -1,0 +1,30 @@
+{
+   "links":{
+      "next":null,
+      "prev":null
+   },
+   "totalObjects":2,
+   "object":"list",
+   "objects":[
+      {
+         "object":"person",
+         "uid":"86b8zqMDyD9m6dcSSvZeHCXNWicELym8",
+         "firstName":"Test",
+         "lastName":"User",
+         "email":"user@example.com",
+         "phoneNumber":null,
+         "avatarUrl":"https://some.cloudfront.net/img/avatars/m_01.png",
+         "gender":"m"
+      },
+      {
+         "object":"person",
+         "uid":"HWKsAhuyVeRpXHxYU5LZaddHmRi76Xd9",
+         "firstName":"Test 2",
+         "lastName":null,
+         "email":"",
+         "phoneNumber":"",
+         "avatarUrl":"https://some.cloudfront.net/img/avatars/f_02.png",
+         "gender":"f"
+      }
+   ]
+}

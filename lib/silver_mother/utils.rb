@@ -18,7 +18,7 @@ module SilverMother
         SENSE RESPONSE: #{result.success? && result.parsed_response.inspect}
       LOG_MESSAGE
 
-      logger.debug log_message
+      logger.debug(log_message) unless ENV['RACK_ENV'] == 'test'
     end
   end
 end
