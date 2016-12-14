@@ -237,11 +237,12 @@ subscription.subscribes[0].type
 ### User
 
 ```ruby
-user = SilverMother::User.new('your_username', 'your_password')
-user.data
+users_api = SilverMother::User.instance
+users_api.call(token)
+user = users_api.user
 ```
 
-Attributes/methods now available for the `user.data` object:
+Attributes/methods now available for the `user` object:
 
  * uid
  * email

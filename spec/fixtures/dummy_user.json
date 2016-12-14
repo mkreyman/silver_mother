@@ -1,6 +1,7 @@
 {
    "object":"user",
-   "username":"user__dummy",
+   "username":"user_dummy",
+   "email":"user@example.com",
    "country":"FR",
    "createdAt":"2014-04-01T09:29:58",
    "updatedAt":"2014-04-01T09:29:58",
@@ -10,7 +11,7 @@
       "uid":"testuid",
       "createdAt":"2014-04-01T15:56:12",
       "updatedAt":"2014-07-12T12:16:12",
-      "label":"node__dummy",
+      "label":"node_dummy",
       "paused":"false",
       "subscribes":[
          {

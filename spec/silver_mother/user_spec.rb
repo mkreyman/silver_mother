@@ -1,30 +1,33 @@
 require 'spec_helper'
 require 'webmock/rspec'
+require 'pry'
 
 module SilverMother
   describe User do
-    user = User.new('username', 'password')
+    token = 'stubbed-application-token'
+    users_api = SilverMother::User.instance
 
-    it 'returns user token' do
-      expected_token = 'stubbed-application-token'
-      user_params = {username: 'username', password: 'password'}
-
-      stub_request(:post, Api::DEFAULT_API_URL + 'user/api_key/')
-        .with(:body => user_params,
-              :headers => {'Content-Type' => 'application/json'})
-        .to_return(body: fixture('dummy_token.json'))
-
-      expect(user.token).to eq expected_token
-    end
-
-    it 'returns user object' do
-      expected_user_data = JSON.parse(fixture('dummy_user.json'), object_class: OpenStruct)
-
+    before :all do
       stub_request(:get, Api::DEFAULT_API_URL + 'user/')
-        .with(:headers => {'Authorization' => 'Bearer stubbed-application-token'})
+        .with(:headers => {'Authorization' => "Bearer #{token}"})
         .to_return(:body => fixture('dummy_user.json'))
 
-      expect(user.data).to eq expected_user_data
+      users_api.call(token)
+    end
+
+    it 'pulls user data with #call' do
+      expected_user_data = JSON.parse(fixture('dummy_user.json'), object_class: OpenStruct)
+      expect(users_api.user).to eq expected_user_data
+    end
+
+    it 'displays user attributes' do
+      expected_user_username      = 'user_dummy'
+      expected_user_email         = 'user@example.com'
+      expected_user_devices_label = 'node_dummy'
+
+      expect(users_api.user.username).to eq expected_user_username
+      expect(users_api.user.email).to eq expected_user_email
+      expect(users_api.user.devices.label).to eq expected_user_devices_label
     end
   end
 end
