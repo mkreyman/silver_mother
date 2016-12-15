@@ -55,11 +55,11 @@ app.get_token('2zykyywQ5bcGAVzMbLUjW4hJSqm4rO')
 The `app.token` object would now have the following attributes:
 
  * access_token
- * token_type
  * expires_in
+ * expires_on (gets calculated based on `expires_in` and the current time)
  * refresh_token
  * scope
- * expires_on (gets calculated based on `expires_in` and the current time)
+ * token_type
 
 
 ```ruby
@@ -169,13 +169,13 @@ feed = feeds_api.feed(uid)
 
 Attributes/methods now available for the `feed` object:
 
- * uid
  * eventsModel
  * eventsUrl
  * label
  * node
  * object
  * type
+ * uid
  * url
  * used
 
@@ -202,18 +202,18 @@ node = nodes.first
 
 Attributes/methods now available for the `node` object:
 
- * uid
- * label
- * url
- * resource
- * token
- * object
- * geometry
  * createdAt
- * updatedAt
+ * geometry
+ * label
+ * object
  * paused
- * subscribes
  * publishes
+ * resource
+ * subscribes
+ * token
+ * uid
+ * updatedAt
+ * url
 
 Some attributes are, in turn, objects or arrays of objects that you could further explore, i.e.
 
@@ -245,14 +245,14 @@ person = persons.first
 
 Attributes/methods now available for the `person` object:
 
- * uid
  * avatarUrl
  * email
  * firstName
- * lastName
  * gender
+ * lastName
  * object
  * phoneNumber
+ * uid
 
 ### Subscriptions
 
@@ -265,9 +265,7 @@ subscription = subscriptions.first
 
 Attributes/methods now available for the `subscription` object:
 
- * uid
  * createdAt
- * updatedAt
  * gatewayUrl
  * geometry
  * label
@@ -276,6 +274,8 @@ Attributes/methods now available for the `subscription` object:
  * publishes
  * resource
  * subscribes
+ * uid
+ * updatedAt
  * url
 
 Some attributes might, in turn, be objects or arrays of objects that you could explore further, i.e.
@@ -294,22 +294,22 @@ user = users_api.user
 
 Attributes/methods now available for the `user` object:
 
- * uid
- * email
- * language
- * object
- * timezone
- * country
- * username
- * subscriptions
  * applications
+ * country
  * createdAt
- * updatedAt
- * is_developer
- * firstName
- * lastName
  * devices
+ * email
+ * firstName
+ * is_developer
+ * language
+ * lastName
+ * object
  * persons
+ * subscriptions
+ * timezone
+ * uid
+ * updatedAt
+ * username
 
 Some attributes might be objects or arrays of objects that you could  explore further, i.e.
 
@@ -350,6 +350,11 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 * Commit your changes. (`git commit -am 'Add some feature'`). Please do not mess with rakefile, version, or history.
 * Push to the branch. (`git push origin my-new-feature`)
 * Create a new Pull Request.
+
+## Support
+
+Please report bugs at [the project page on Github](https://github.com/mkreyman/silver_mother/issues). Don't
+hesitate to [ask questions](http://stackoverflow.com/questions/tagged/silver-mother-api-ruby-client) about the client on [StackOverflow](http://stackoverflow.com).
 
 ## License
 
