@@ -1,5 +1,5 @@
 module SilverMother
-  class Auth
+  class Application
     SENSE_URL      = 'https://sen.se/api/v2/'.freeze
     RESPONSE_TYPE  = 'code'.freeze
     GRANT_TYPES    = { access: 'authorization_code',

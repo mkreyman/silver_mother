@@ -12,7 +12,7 @@ Style/Documentation:
     - 'spec/**/*'
     - 'test/**/*'
     - 'lib/silver_mother/api.rb'
-    - 'lib/silver_mother/auth.rb'
+    - 'lib/silver_mother/application.rb'
     - 'lib/silver_mother/event.rb'
     - 'lib/silver_mother/feed.rb'
     - 'lib/silver_mother/node.rb'
