@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ['mark@kreyman.com']
 
   spec.summary       = 'Client for Sen.se/SilverMother API.'
-  spec.description   = 'A library for communicating with the SilverMother' \
-                       'REST API. Register your application at' \
+  spec.description   = 'A library for communicating with the SilverMother ' \
+                       'REST API. Register your application at ' \
                        'https://sen.se/developers/'
 
   spec.homepage      = 'https://github.com/mkreyman/silver_mother'
