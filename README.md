@@ -34,6 +34,7 @@ app_params = { gateway_url: 'http://your_app_domain/notification/',
 # it appears that you could only use two scopes at a time.
 
 app = SilverMother::Application.new(app_params)
+```
 
 Then construct authorization url for your user
 
@@ -49,7 +50,7 @@ http://your_app_domain/oauth/?code=2zykyywQ5bcGAVzMbLUjW4hJSqm4rO
 app.get_token('2zykyywQ5bcGAVzMbLUjW4hJSqm4rO')
 ```
 
-**NOTE: You only have 60 secs to retrieve your access token with that code. If you’re getting an “invalid grant” error, it simply mean the given authorization code has expired already.**
+**NOTE: You only have 60 secs to retrieve your access token with that code. If you’re getting an “invalid grant” error, it means that the given authorization code has expired already.**
 
 The `app.token` object would now have the following attributes:
 
@@ -334,7 +335,7 @@ silver_mother_api.delete(token, path, params = {})
 
 After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+To install this gem onto your local machine, run `bundle exec rake install`.
 
 ## Contributing
 
@@ -345,6 +346,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a future version unintentionally.
 * Run `bundle exec rake` again.
+* Run `rubocop .`
 * Commit your changes. (`git commit -am 'Add some feature'`). Please do not mess with rakefile, version, or history.
 * Push to the branch. (`git push origin my-new-feature`)
 * Create a new Pull Request.
