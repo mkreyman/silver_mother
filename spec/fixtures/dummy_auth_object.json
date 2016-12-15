@@ -1,0 +1,7 @@
+{
+   "access_token":"stubbed-application-token",
+   "token_type":"Bearer",
+   "expires_in":31536000,
+   "refresh_token":"stubbed-refresh-token",
+   "scope":"profile feeds.read"
+}
