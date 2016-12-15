@@ -21,11 +21,60 @@ Or install it yourself as:
 
 ## Usage
 
-Fetch your token first:
+### Authorizing your app
 
 ```ruby
-user = SilverMother::User.new('your_username', 'your_password')
-token = user.token
+app_params = { gateway_url: 'http://your_app_domain/notification/',
+               redirect_url: 'http://your_app_domain/oauth/',
+               oauth2_client_id: 'your-client-id',
+               oauth2_client_secret: 'your-client-secret',
+               scope: 'profile+feeds.read' }
+
+# see https://sen.se/developers/documentation/ for a list of available scopes;
+# it appears that you could only use two scopes at a time.
+
+app = SilverMother::Application.new(app_params)
+
+Then construct authorization url for your user
+
+```ruby
+app.authorization_url
+```
+
+After following the URL the user would be directed to a Sen.se auth page, and then redirected to your `redirect_url`, with an auth code as `code` parameter, i.e.
+
+```ruby
+http://your_app_domain/oauth/?code=2zykyywQ5bcGAVzMbLUjW4hJSqm4rO
+
+app.get_token('2zykyywQ5bcGAVzMbLUjW4hJSqm4rO')
+```
+
+**NOTE: You only have 60 secs to retrieve your access token with that code. If you’re getting an “invalid grant” error, it simply mean the given authorization code has expired already.**
+
+The `app.token` object would now have the following attributes:
+
+ * access_token
+ * token_type
+ * expires_in
+ * refresh_token
+ * scope
+ * expires_on (gets calculated based on `expires_in` and the current time)
+
+
+```ruby
+token = app.token.access_token
+```
+
+It appears that the access token is valid for 1 year. Use the `refresh_token` method to retrieve a new access token:
+
+```ruby
+app.refresh_token(app.token.refresh_token)
+```
+
+And now you have an updated `app.token` object
+
+```ruby
+token = app.token.access_token
 ```
 
 ### Events
