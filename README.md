@@ -354,7 +354,7 @@ To install this gem onto your local machine, run `bundle exec rake install`.
 ## Support
 
 Please report bugs at [the project page on Github](https://github.com/mkreyman/silver_mother/issues). Don't
-hesitate to [ask questions](http://stackoverflow.com/questions/tagged/silver-mother-api-ruby-client) about the client on [StackOverflow](http://stackoverflow.com).
+hesitate to [ask questions](http://stackoverflow.com/questions/tagged/silver-mother-api-ruby-client) about the client on [StackOverflow](http://stackoverflow.com). Please note that I'm __not__ affiliated with [Sen.se](https://sen.se) in any way. So all questions about their API should be directed to their support at [support@sen.se](support@sen.se) and [api@sen.se](api@sen.se).
 
 ## License
 
