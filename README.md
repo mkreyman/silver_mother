@@ -88,12 +88,11 @@ nodes = events_api.nodes
 node_uids = events_api.node_uids
 feed_uids = events_api.feed_uids
 
-params = {
-            uid:   'n3TQUtzAp3c67BYOUsIuMAwgWe7i0r3A',
-            type:  'notification',
-            limit: 5,   # limit the number of results, default is 10
-            secs:  3600 # ttl for returned results, default is 300
-          }
+# with 'uid' being a node's uid
+events = events_api.events(uid, type)
+
+# i.e.
+events = events_api.events('n3TQUtzAp3c67BYOUsIuMAwgWe7i0r3A', 'notification')
 ```
 
 Possible types appear to be:
@@ -108,21 +107,14 @@ Possible types appear to be:
  * 'temperature'
  * 'tile'
 
-**NOTE:** you can only specify 'type' for node UIDs. An example of a params hash for a feed uid:
+**NOTE:** you can only specify `type` for a node UID. So, if `type` is omitted, the `uid` is assumed to be a feed uid:
 
  ```ruby
-params = {
-            uid:   'GS5vq3D3MvqUZmBqRQoQY9Av4KRgHPvs',
-            limit: 5,   # limit the number of results, default is 10
-            secs:  3600 # ttl for returned results, default is 300
-          }
+events = events_api.events(uid)
+
 ```
 
-```ruby
-events = events_api.events(params)
-```
-
-If you need to work with a particular event:
+Then, to work with a particular event:
 
 ```ruby
 event = events[0]
@@ -161,7 +153,7 @@ feeds = feeds_api.feeds
 uids = feeds_api.uids
 ```
 
-To get a feed (or feeds) for a particular uid:
+To get a feed (or feeds) for a particular feed `uid`:
 
 ```ruby
 feed = feeds_api.feed(uid)
